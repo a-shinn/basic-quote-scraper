@@ -21,12 +21,6 @@ data['Tags'] = data['Tags'].str.split()
 for tags in data['Tags']:
     tags = tags.remove('Tags:')
 
-# print(data.sort_values('Author'))
-# print()
-# print(data.describe())
-#
-# data.to_csv('src/quotes.csv', index=False)
-
 # counts frequency of each tag in the list of books
 tag_counts = {}
 for series in data['Tags']:
@@ -37,3 +31,8 @@ for series in data['Tags']:
         else:
             tag_counts[taglist] = 1
 
+# print(data.sort_values('Author'))
+# print()
+# print(data.describe())
+
+# data.to_csv('src/quotes.csv', index=False)
