@@ -10,7 +10,7 @@ soup = bs.BeautifulSoup(webpage.text, 'html.parser')
 quotes = soup.findAll('span', attrs={'class':'text'})
 authors = soup.findAll('small', attrs={'class':'author'})
 tags = soup.findAll('div', attrs={'class':'tags'})
-# login = soup.findAll('div', attrs={'class':'col-md-4'})
+login = soup.findAll('div', attrs={'class':'col-md-4'})
 
 # combines quotes,authors,tags into a list then converts into a dataframe
 list1 = [[author.text,quote.text,tags.text] for author,quote,tags in zip(authors,quotes,tags)]
@@ -31,8 +31,8 @@ for series in data['Tags']:
         else:
             tag_counts[taglist] = 1
 
-# print(data.sort_values('Author'))
-# print()
-# print(data.describe())
+print(data.sort_values('Author'))
+print()
+print(data.describe())
 
-# data.to_csv('src/quotes.csv', index=False)
+data.to_csv('src/quotes.csv', index=False)
